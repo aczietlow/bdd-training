@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+
+		<title>Mindgrub - BDD Training</title>
+
+		<meta name="description" content="Mindgrub BDD Training">
+		<meta name="author" content="Chris Zietlow">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/mindgrub.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class='footer'>
+				<img src="assets/mindgrub-logo.png"/>
+				<a href="https://www.drupal.org/u/aczietlow">Chris Zietlow</a>
+				<a href="http://aczietlow.github.io/behat/">Intro to Behat</a>
+				<a href="https://twitter.com/aczietlow">@aczietlow</a>
+			</div>
+			<div class="slides">
+				<section>
+					<img data-src="assets/chris_z.jpg" alt="Mug shot of Chris Z" />
+					<h2><a href="https://twitter.com/aczietlow">@aczietlow</a></h2>
+					<span>Drupal Lead Engineer, <a href="https://www.mindgrub.com">Mindgrub</a></span>
+				</section>
+\
+			</div>
+		</div>
+		<!-- Because I'm a scrub and still use jquery. -->
+		<script src="lib/js/jquery-3.3.1.min.js"></script>
+
+		<!-- Custom slide configuration. -->
+		<script src="js/mindgrub.js"></script>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+		<script>
+			// Displayed upon load, hides when slide changes.
+			Reveal.addEventListener('slidechanged', function(event) {
+				document.querySelector('.reveal .footer').style.display = 'none';
+			});
+		</script>
+	</body>
+</html>
