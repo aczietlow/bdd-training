@@ -205,12 +205,11 @@ And a confirmation email is sent to Jon
 				</section>
 				<section>
 					<section>
-						<h2>Behat</h2>
-						<h4 class="fragment">Installation</h4>
+						<h2>Behat - Installation</h2>
 						<p class="fragment">composer.json</p>
 						<pre><code class="json fragment" data-trim contenteditable style="font-size: 18px;">
 	"require": {
-	"behat/behat": "^3.0",
+		"behat/behat": "^3.0",
 	}
 						</code></pre>
 						<p class="json fragment">a yaml config file</p>
@@ -356,6 +355,27 @@ $ bin/behat features/user_login.feature
     $this->getUserManager()->setCurrentUser(FALSE);
   }
 						</code></pre>
+					</section>
+					<section>
+						<p>Live Demo</p>
+					</section>
+					<section>
+						<h2>Step Definitions</h2>
+						<p>Out of the box the Mink and Drupal Drivers will provide a lot of step definitions that you can use.</p>
+						<pre><code data-trim contenteditable>
+    $ behat -dl
+</code></pre>
+						<pre><code data-trim contenteditable>
+default | When I visit the login page
+default | Given I am an anonymous user
+default | Given I am not logged in
+default | Given I am logged in as a user with the :role role(s)
+default | Given I am logged in as a user with the :role role(s) and I have the following fields:
+default | Given I am logged in as :name
+default | Given I am logged in as a user with the :permissions permission(s)
+default | Then I should see (the text ):text in the ":rowText" row
+default | Given I click :link in the :rowText row
+</code></pre>
 					</section>
 				</section>
 
