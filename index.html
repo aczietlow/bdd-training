@@ -38,16 +38,168 @@
 			<div class='footer'>
 				<img src="assets/mindgrub-logo.png"/>
 				<a href="https://www.drupal.org/u/aczietlow">Chris Zietlow</a>
-				<a href="http://aczietlow.github.io/behat/">Intro to Behat</a>
+				<a href="http://aczietlow.github.io/behat/">BDD Training</a>
 				<a href="https://twitter.com/aczietlow">@aczietlow</a>
 			</div>
 			<div class="slides">
 				<section>
-					<img data-src="assets/chris_z.jpg" alt="Mug shot of Chris Z" />
-					<h2><a href="https://twitter.com/aczietlow">@aczietlow</a></h2>
-					<span>Drupal Lead Engineer, <a href="https://www.mindgrub.com">Mindgrub</a></span>
+					<section>
+						<h2>Behavior Driven Development</h2>
+						<!--<h5>PredictionIO and Drupal</h5>-->
+					</section>
+					<section>
+						<!-- TODO: Find a better picture-->
+						<img data-src="assets/chris_z.jpg" alt="Mug shot of Chris Z" />
+						<h2><a href="https://twitter.com/aczietlow">@aczietlow</a></h2>
+						<span>Lead Software Engineer, <a href="https://www.mindgrub.com">Mindgrub</a></span>
+					</section>
 				</section>
-\
+				<section>
+					<h2>A tale of 2 parts</h2>
+					<ul>
+						<li class="fragment">BDD</li>
+						<li class="fragment">Behat/Behave</li>
+						<ul>
+							<li class="fragment">This is the technical part</li>
+							<li class="fragment">Feel free to run away</li>
+						</ul>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h2>Behavior Driven Development</h2>
+						<p class="fragment">Behavior-driven development is an "outside-in" methodology. It starts at the outside by identifying business outcomes, and then drills down into the feature set that will achieve those outcomes. - Dan North*
+						</p>
+						<p class="fragment">^^ literally wrote the book</p>
+						<aside class="notes">Define system behaviors by examples</aside>
+					</section>
+					<section>
+						<h2>Examples of Examples</h2>
+						<pre><code class="gherkin" data-trim contenteditable style="font-size: 18px;">
+Given Jane bought a laptop
+And the laptop cost $500
+When Jane returns the laptop
+Then she should have $500
+					</code></pre>
+					</section>
+					<section>
+						<h2>What is it good for</h2>
+						<ul>
+							<li class="fragment">A blending of functional testing and acceptance testings</li>
+							<li class="fragment">Provides human readable requirements to describe a feature and how it should work</li>
+							<li class="fragment">Verifies software features fulfill requirement</li>
+
+						</ul>
+					</section>
+					<section>
+						<h2>Why Bother</h2>
+						<p class="fragment">Better understanding of your product</p>
+						<img class="fragment" data-src="https://cdn-images-1.medium.com/max/1600/0*Ak-hWgbRp2RSD8iM.png" alt="confused">
+						<aside class="notes">
+							<dl>
+								<dt>understanding</dt>
+								<dd>Tests help you really understand the design of the code you are working on. Instead of writing code to do something, you are starting by outlining all the conditions you are subjecting the code to and what outputs you'd expect from that.</dd>
+							</dl>
+						</aside>
+					</section>
+					<section>
+						<h2>Why bother</h2>
+						<ul>
+							<li class="fragment">Better acceptance criteria</li>
+							<li class="fragment">Less regression</li>
+							<li class="fragment">Quality</li>
+						</ul>
+						<aside class="notes">
+								<dt>AC 1</dt>
+								<dd>Testing demands that requirements are clearly defined in order to know what test against.</dd>
+								<dt>AC 2</dt>
+								<dd>Not only does this give you a better grasp of what the client is asking to build, but also gives you the confidence to say when you’ve implemented a feature that satisfies the AC. It’s the only reliable way you can tell a client that a task is “done”.</dd>
+								<dt>regression</dt>
+								<dd>Avoid tomorrow’s headaches and maintenance. Testing gives you the confidence that when building a new feature, it does not break your existing code base.</dd>
+							</dl>
+						</aside>
+					</section>
+					<section>
+						<h2>Examples</h2>
+						<pre><code class="gherkin" data-trim contenteditable style="font-size: 18px;">
+Given a context
+When some event happens
+Then something *should* occur
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+
+							<h2>How to do the thing?</h2>
+						<pre class="fragment"><code class="gherkin" data-trim contenteditable style="font-size: 18px;">
+# Comment
+@tag
+Feature: Eating too many cucumbers may not be good for you
+
+  Eating too much of anything may not be good for you.
+
+  Scenario: Eating a few is no problem
+    Given Alice is hungry
+	And she likes vegetables
+    When she eats 3 cucumbers
+    Then she will be full
+					</code></pre>
+							<img class="fragment" data-src="https://media.giphy.com/media/12XMGIWtrHBl5e/giphy.gif" alt="Run away!!" />
+							<aside class="notes">Going off in a corner and writing scenarios is not bdd. There's more to it.</aside>
+					</section>
+					<section>
+						<h2>How to do the thing?</h2>
+						<ol>
+							<li class="fragment">Have a conversation</li>
+							<li class="fragment">Capture the conversation</li>
+							<li class="fragment">Automate the conversation</li>
+						</ol>
+					</section>
+					<section>
+						<h2>The conversation</h2>
+						<ul>
+							<li class="fragment">Is there any context where this scenario won't be true</li>
+							<li class="fragment">Are there other outcomes we care about?</li>
+							<li class="fragment">Ask for examples</li>
+						</ul>
+					<aside class="notes">eg #3 If a user goes to a bank teller and ask for $20 then receives $20. Are there other outcomes we care about?</aside>
+					</section>
+					<section>
+						<img data-src="assets/facebook.png" alt="facebook" />
+					</section>
+					<section>
+						<pre><code class="gherkin" data-trim contenteditable style="font-size: 18px;">
+Given Jon Snow wants to sign up for facebook
+When he enters his first name
+And he enters his last name
+And he enters his email address
+And he re-enters his email address
+And he enter a new password
+And specifies a gender
+And enters his birthday
+And submits his request
+Then a Facebook account is created
+And account name is set as Jon's email address
+And a confirmation email is sent to Jon
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<h2>Tooling</h2>
+					<img class="fragment" data-src="https://media.giphy.com/media/3o7ZetIsjtbkgNE1I4/giphy.gif" alt="Run away!!" />
+					<p class="fragment">(You can leave now)</p>
+				</section>
+				<section>
+					<h2>BDD Frameworks</h2>
+					<ul>
+						<li>Behat - PHP</li>
+						<li>Behave - Python</li>
+						<li>JBehave - Java</li>
+						<li>Cucumber - Java</li>
+						<li>Cucumber.js - Javascript</li>
+					</ul>
+				</section>
 			</div>
 		</div>
 		<!-- Because I'm a scrub and still use jquery. -->
